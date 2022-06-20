@@ -13,17 +13,9 @@ class Home extends Component {
   }
   // the addTodo function simply creates a new array that includes the user submitted todo item and then
   // updates the state with the new list.
-  deleteTodo = (id) => {
-    const todos = this.state.todos.filter((todo) => {
-      return todo.id !==id;
-    });
-    this.setState({
-      todos: todos,
-    });
-  };
   addTodo = (todo) => {
 
-    if (this.state.todos.find(t=>t.content === todo.content)) {
+    if (this.state.todos.find(element=>element.content === todo.content)) {
         return
     }
     else {
@@ -40,6 +32,14 @@ class Home extends Component {
       todos: new_list,
     });
   }
+  };
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter((todo) => {
+      return todo.id !==id;
+    });
+    this.setState({
+      todos: todos,
+    });
   };
   render() {
     return (
